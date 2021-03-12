@@ -1,0 +1,23 @@
+{
+  "name": "react_starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.6.9",
+    "express": "^4.17.1",
+    "phaser": "^3.19.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  }
+}

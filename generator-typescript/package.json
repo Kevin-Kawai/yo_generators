@@ -4,7 +4,8 @@
   "description": "",
   "files": [
     "app",
-    "vuejs_webpack"
+    "vuejs_webpack",
+    "phaser"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {
