@@ -1,9 +1,10 @@
 {
-  "name": "generator",
+  "name": "generator-typescript",
   "version": "0.1.0",
   "description": "",
   "files": [
-    "generators"
+    "app",
+    "vuejs_webpack"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {

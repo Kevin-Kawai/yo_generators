@@ -1,0 +1,1 @@
+Use the sub-generator generator to create a sub-generator. Add the name to the files section under package.json

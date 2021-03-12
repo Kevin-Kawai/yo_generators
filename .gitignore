@@ -3,3 +3,5 @@
 /generator-file-test/node_modules
 /generator-ruby/node_modules
 /generator-generator/node_modules
+/generator-javascript/node_modules
+/generator-typescript/node_modules
