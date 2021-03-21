@@ -5,3 +5,4 @@
 /generator-generator/node_modules
 /generator-javascript/node_modules
 /generator-typescript/node_modules
+/generator-docker/node_modules

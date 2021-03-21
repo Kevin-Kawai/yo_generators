@@ -1,12 +1,10 @@
 {
-  "name": "generator-typescript",
+  "name": "generator-docker",
   "version": "0.1.0",
   "description": "",
   "files": [
     "app",
-    "vuejs_webpack",
-    "phaser",
-    "react_webpack"
+    "mysql"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {

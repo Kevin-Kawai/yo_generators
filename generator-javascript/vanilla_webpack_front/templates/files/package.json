@@ -1,0 +1,13 @@
+{
+  "name": "react_starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

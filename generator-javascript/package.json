@@ -1,9 +1,12 @@
 {
-  "name": "generator",
+  "name": "generator-javascript",
   "version": "0.1.0",
   "description": "",
   "files": [
-    "app"
+    "app",
+    "react_webpack",
+    "vanilla_webpack_front",
+    "vanilla_webpack_full"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {
