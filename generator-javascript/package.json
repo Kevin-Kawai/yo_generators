@@ -5,6 +5,7 @@
   "files": [
     "app",
     "react_webpack",
+    "react_webpack_old",
     "vanilla_webpack_front",
     "vanilla_webpack_full"
   ],
