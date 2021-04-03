@@ -1,11 +1,25 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import InitialComponent from './components/InitialComponent';
+var Generator = require("yeoman-generator");
 
-const appElement = document.getElementById('app');
+module.exports = class extends Generator {
+  async prompting() {
+    this.answers = await this.prompt([
+      {
+        type: 'input',
+        name: 'projectName',
+        message: 'what is the project name',
+        default: this.appname
+      }
+    ])
+  }
 
-ReactDOM.render(
-  <InitialComponent />,
-  appElement
-);
+  writing() {
+    this.fs.copyTpl(
+      this.templatePath("files"),
+      this.destinationPath(`${this.answers.projectName}`)
+    )
+  }
 
+  npmInstall() {
+    this.spawnCommandSync("yarn install")
+  }
+};
