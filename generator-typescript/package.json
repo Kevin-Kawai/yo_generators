@@ -6,7 +6,8 @@
     "app",
     "vuejs_webpack",
     "phaser",
-    "react_webpack"
+    "react_webpack",
+    "sandbox"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {
