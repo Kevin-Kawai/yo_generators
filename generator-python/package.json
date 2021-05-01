@@ -1,0 +1,12 @@
+{
+  "name": "generator-python",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "jupyter-notebook-starter"
+  ],
+  "keywords": ["yeoman-generator"],
+  "dependencies": {
+    "yeoman-generator": "^1.0.0"
+  }
+}
