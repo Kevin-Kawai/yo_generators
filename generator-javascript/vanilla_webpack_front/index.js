@@ -19,7 +19,8 @@ module.exports = class extends Generator {
     )
   }
 
-  npmInstall() {
-    this.spawnCommandSync("yarn install")
+  install() {
+    process.chdir(`${process.cwd()}/${this.answers.projectName}`)
+    this.spawnCommandSync("yarn", ['install'])
   }
 };
