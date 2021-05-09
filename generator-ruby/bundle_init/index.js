@@ -24,7 +24,8 @@ module.exports = class extends Generator {
     )
   }
 
-  async bundleInstall() {
-    this.spawnCommandSync("bundle install")
+  install() {
+    process.chdir(`${process.cwd()}/${this.answers.projectName}`)
+    this.spawnCommandSync("bundle", ['install'])
   }
 }
