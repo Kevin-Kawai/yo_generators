@@ -1,5 +1,6 @@
+<%= link_to "New", new_blog_path %>
 <% @blogs.each do |blog| %>
   <div>
-    <%= blog.title %>
+    <%= link_to blog.title, blog_path(blog) %>
   </div>
 <% end%>

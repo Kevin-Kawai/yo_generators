@@ -39,6 +39,10 @@ module.exports = class extends Generator {
       this.templatePath("routes.rb"),
       this.destinationPath(`${this.answers.projectName}/config/routes.rb`)
     )
+    this.fs.copy(
+      this.templatePath("seeds.rb"),
+      this.destinationPath(`${this.answers.projectName}/db/seeds.rb`)
+    )
 
     if (this.answers.usingDockerForDB) {
       this.fs.copy(

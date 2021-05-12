@@ -1,0 +1,8 @@
+<%= link_to "All Blogs", blogs_path %>
+<%= link_to "Delete", @blog, method: :delete %>
+<div>
+  title: <%= @blog.title %>
+</div>
+<div>
+  content <%= @blog.content %>
+</div>
