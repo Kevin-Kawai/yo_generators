@@ -54,6 +54,6 @@ module.exports = class extends Generator {
 
   install() {
     this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: `${process.cwd()}/${this.answers.projectName}`})
-    this.spawnCommandSync("bin/rake", ['db:create', 'db:migrate'], { cwd: `${process.cwd()}/${this.answers.projectName}`})
+    this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate'], { cwd: `${process.cwd()}/${this.answers.projectName}`})
   }
 }
