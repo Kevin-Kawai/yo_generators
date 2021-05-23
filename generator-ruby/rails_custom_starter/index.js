@@ -67,7 +67,8 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate', 'db:seed'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
-    this.spawnCommandSync("bundle", ['add', 'rspec-rails'], { cwd: installLocation })
-    this.spawnCommandSync("bin/rails", ['generate', 'rspec:install', '--group=development,testing'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,testing'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,testing'], { cwd: installLocation })
+    this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
   }
 }
