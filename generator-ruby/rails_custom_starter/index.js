@@ -31,6 +31,14 @@ module.exports = class extends Generator {
       this.templatePath("blogs"),
       this.destinationPath(`${this.answers.projectName}/app/views/blogs`)
     )
+    this.fs.copy(
+      this.templatePath("home"),
+      this.destinationPath(`${this.answers.projectName}/app/views/home`)
+    )
+    this.fs.copyTpl(
+      this.templatePath("home_controller.rb"),
+      this.destinationPath(`${this.answers.projectName}/app/controllers/home_controller.rb`)
+    )
     this.fs.copyTpl(
       this.templatePath("blogs_controller.rb"),
       this.destinationPath(`${this.answers.projectName}/app/controllers/blogs_controller.rb`)
