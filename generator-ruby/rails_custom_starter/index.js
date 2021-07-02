@@ -14,6 +14,12 @@ module.exports = class extends Generator {
         name: 'usingDockerForDB',
         message: 'is you DB in a docker container?',
         default: true
+      },
+      {
+        type: 'confirm',
+        name: 'typescriptWebpacker',
+        message: 'Do you want to install typescript with webpacker',
+        default: true
       }
     ])
   }
@@ -67,8 +73,12 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate', 'db:seed'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
-    this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,testing'], { cwd: installLocation })
-    this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,testing'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,test'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
+
+    if (this.answers.typescriptWebpacker) {
+      this.spawanCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })
+    }
   }
 }

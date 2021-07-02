@@ -18,4 +18,8 @@ module.exports = class extends Generator {
       this.destinationPath(`${this.answers.projectName}`)
     )
   }
+
+  install() {
+    this.spawnCommandSync("yarn install")
+  }
 };
