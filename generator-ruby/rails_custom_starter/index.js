@@ -78,7 +78,7 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
 
     if (this.answers.typescriptWebpacker) {
-      this.spawanCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })
+      this.spawnCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })
     }
   }
 }
