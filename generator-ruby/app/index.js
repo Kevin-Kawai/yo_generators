@@ -15,16 +15,26 @@ module.exports = class extends Generator {
   writing() {
     // TODO: check if the folder already exists and fail if it does
     this.fs.copyTpl(
-      this.templatePath("Gemfile"),
-      this.destinationPath(`${this.answers.projectName}/Gemfile`)
-    )
-    this.fs.copyTpl(
       this.templatePath("app.rb"),
       this.destinationPath(`${this.answers.projectName}/app.rb`)
     )
+
+    this.fs.copyTpl(
+      this.templatePath("app/model/model.rb"),
+      this.destinationPath(`${this.answers.projectName}/app/model/model.rb`)
+    )
+
+    this.fs.copyTpl(
+      this.templatePath("spec/model/model_spec.rb"),
+      this.destinationPath(`${this.answers.projectName}/spec/model/model_spec.rb`)
+    )
   }
 
-  async bundleInstall() {
-    this.spawnCommandSync("bundle install")
+  install() {
+    const installLocation = `${process.cwd()}/${this.answers.projectName}`
+
+    this.spawnCommandSync("bundle", ["init"], { cwd: installLocation})
+    this.spawnCommandSync("bundle", ["add", "pry"], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ["add", "rspec"], { cwd: installLocation })
   }
 }

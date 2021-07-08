@@ -1,3 +1,5 @@
-require "pry"
+require_relative "./app/model/model.rb"
 
-binding.pry
+model = Model.new
+
+pp model.print
