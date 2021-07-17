@@ -16,10 +16,10 @@ module.exports = class extends Generator {
         default: true
       },
       {
-        type: 'confirm',
-        name: 'typescriptWebpacker',
-        message: 'Do you want to install typescript with webpacker',
-        default: true
+        type: 'list',
+        name: 'frontendOption',
+        choices: ['typescript'],
+        default: 'typescript'
       }
     ])
   }
@@ -77,8 +77,12 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
 
-    if (this.answers.typescriptWebpacker) {
+    if (this.answers.frontendOption == 'typescript') {
       this.spawnCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })
+    } else if (this.answers.frontendOption == 'react') {
+      this.spawnCommandSync("bin/rails", ['webpacker:install:react'], { cwd: installLocation })
+    } else if (this.answers.frontendOption == 'vuejs') {
+      this.spawnCommandSync("bin/rails", ['webpacker:install:vue'], { cwd: installLocation })
     }
   }
 }
