@@ -16,9 +16,15 @@ module.exports = class extends Generator {
         default: true
       },
       {
+        type: 'confirm',
+        name: 'usingDockerForRedis',
+        message: 'is you Redis in a docker container?',
+        default: true
+      },
+      {
         type: 'list',
         name: 'frontendOption',
-        choices: ['typescript'],
+        choices: ['typescript', 'react', 'vuejs', 'none'],
         default: 'typescript'
       }
     ])
@@ -64,6 +70,13 @@ module.exports = class extends Generator {
         this.destinationPath(`${this.answers.projectName}/config/database.yml`)
       )
     }
+
+    if (this.answers.usingDockerForRedis) {
+      this.fs.copy(
+        this.templatePath("development.rb"),
+        this.destinationPath(`${this.answers.projectName}/config/environments/development.rb`),
+      )
+    }
   }
 
   install() {
@@ -76,6 +89,10 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
+
+    if (this.answers.usingDockerForRedis) {
+      this.spawnCommandSync("bundle", ['add', 'redis'], { cwd: installLocation })
+    }
 
     if (this.answers.frontendOption == 'typescript') {
       this.spawnCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })

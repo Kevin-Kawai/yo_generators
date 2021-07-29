@@ -1,0 +1,11 @@
+{
+  "name": "react_starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn webpack",
+    "watch": "yarn webpack --watch",
+    "start": "node server.js"
+  }
+}

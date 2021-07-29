@@ -6,6 +6,9 @@ const clientConfig = {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
   module: {
     rules: [{
       test: /\.ts(x?)$/,

@@ -1,17 +1,27 @@
 var Generator = require("yeoman-generator");
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts)
-
-    this.option('babel')
+  async prompting() {
+    this.answers = await this.prompt([
+      {
+        type: 'input',
+        name: 'projectName',
+        message: 'what is the project name',
+        default: this.appname
+      }
+    ])
   }
 
-  method1() {
-    this.log('hello 1')
+  writing() {
+    this.fs.copyTpl(
+      this.templatePath("files"),
+      this.destinationPath(`${this.answers.projectName}`)
+    )
   }
 
-  method2() {
-    this.log('hello 2')
+  install() {
+    const installLocation = `${process.cwd()}/${this.answers.projectName}`
+
+    this.spawnCommandSync("yarn", ['install'], { cwd: installLocation })
   }
 };

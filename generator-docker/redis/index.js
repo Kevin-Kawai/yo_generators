@@ -6,20 +6,17 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'projectName',
-        message: 'what is the project name',
+        message: "what is the project name",
         default: this.appname
       }
     ])
   }
 
   writing() {
+    // TODO: check if the folder already exists and fail if it does
     this.fs.copyTpl(
-      this.templatePath("files"),
-      this.destinationPath(`${this.answers.projectName}`)
+      this.templatePath("Dockerfile"),
+      this.destinationPath(`${this.answers.projectName}/Dockerfile`)
     )
   }
-
-  npmInstall() {
-    this.spawnCommandSync("yarn install")
-  }
-};
+}

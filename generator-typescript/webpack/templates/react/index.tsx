@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
-import { Hello } from './Hello.tsx';
+import { Hello } from './Hello';
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
