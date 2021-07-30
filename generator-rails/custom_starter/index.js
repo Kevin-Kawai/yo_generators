@@ -83,16 +83,21 @@ module.exports = class extends Generator {
     const installLocation = `${process.cwd()}/${this.answers.projectName}`
 
     this.spawnCommandSync("bin/rails", ['app:update:bin'], { cwd: installLocation })
-    this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: installLocation })
-    this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate', 'db:seed'], { cwd: installLocation })
+
+    // adding gems
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
-    this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
-
     if (this.answers.usingDockerForRedis) {
       this.spawnCommandSync("bundle", ['add', 'redis'], { cwd: installLocation })
     }
+
+
+    // auto generating stuff
+    this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
+    this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: installLocation })
+    this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate', 'db:seed'], { cwd: installLocation })
+
 
     if (this.answers.frontendOption == 'typescript') {
       this.spawnCommandSync("bin/rails", ['webpacker:install:typescript'], { cwd: installLocation })
