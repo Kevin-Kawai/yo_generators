@@ -79,10 +79,8 @@ module.exports = class extends Generator {
     }
   }
 
-  install() {
+  async install() {
     const installLocation = `${process.cwd()}/${this.answers.projectName}`
-
-    this.spawnCommandSync("bin/rails", ['app:update:bin'], { cwd: installLocation })
 
     // adding gems
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
@@ -92,8 +90,8 @@ module.exports = class extends Generator {
       this.spawnCommandSync("bundle", ['add', 'redis'], { cwd: installLocation })
     }
 
-
     // auto generating stuff
+    this.spawnCommandSync("bin/spring", ['stop'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['generate', 'rspec:install'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['g', 'migration', 'CreateBlogs', 'title:string', 'content:text'], { cwd: installLocation })
     this.spawnCommandSync("bin/rails", ['db:create', 'db:migrate', 'db:seed'], { cwd: installLocation })
