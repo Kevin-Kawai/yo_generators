@@ -53,6 +53,7 @@ module.exports = class extends Generator {
 
     // css related
     this.spawnCommandSync('yarn', ['add', 'css-loader'], { cwd: installLocation })
+    this.spawnCommandSync('yarn', ['add', 'style-loader'], { cwd: installLocation })
     this.spawnCommandSync('yarn', ['add', 'node-sass'], { cwd: installLocation })
     this.spawnCommandSync('yarn', ['add', 'sass-loader'], { cwd: installLocation })
 

@@ -84,6 +84,7 @@ module.exports = class extends Generator {
 
     // adding gems
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'sidekiq'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,test'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
     if (this.answers.usingDockerForRedis) {
