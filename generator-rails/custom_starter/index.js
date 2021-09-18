@@ -86,6 +86,7 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bundle", ['add', 'faraday'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'sidekiq'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'rspec-rails', '--group=development,test'], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ['add', 'devise'], { cwd: installLocation })
     this.spawnCommandSync("bundle", ['add', 'pry', '--group=development,test'], { cwd: installLocation })
     if (this.answers.usingDockerForRedis) {
       this.spawnCommandSync("bundle", ['add', 'redis'], { cwd: installLocation })
@@ -105,5 +106,12 @@ module.exports = class extends Generator {
     } else if (this.answers.frontendOption == 'vuejs') {
       this.spawnCommandSync("bin/rails", ['webpacker:install:vue'], { cwd: installLocation })
     }
+
+    // placed last because there are a bunch of instructions
+    this.spawnCommandSync("bin/rails", ['generate', 'devise:install'], { cwd: installLocation })
+  }
+
+  async end() {
+    console.log("follow thes instructions to finish setting up devise https://github.com/heartcombo/devise#getting-started")
   }
 }

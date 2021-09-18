@@ -10,11 +10,22 @@ const clientConfig = {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
-    rules: [{
-      test: /\.ts(x?)$/,
-      exclude: /node_modules/,
-      loader: "ts-loader"
-    }]
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        loader: "ts-loader"
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Create 'style' nodes from JS strings
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
   }
 }
 
