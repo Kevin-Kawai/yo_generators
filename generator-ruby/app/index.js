@@ -20,7 +20,7 @@ module.exports = class extends Generator {
     )
 
     this.fs.copyTpl(
-      this.templatePath("app/model/model.rb"),
+      this.templatePath("app/models/model.rb"),
       this.destinationPath(`${this.answers.projectName}/app/model/model.rb`)
     )
 
