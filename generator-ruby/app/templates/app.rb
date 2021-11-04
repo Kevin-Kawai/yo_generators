@@ -1,4 +1,4 @@
-require_relative "./app/model/model.rb"
+require_relative "./app/models/model.rb"
 
 model = Model.new
 

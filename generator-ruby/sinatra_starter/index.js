@@ -25,6 +25,11 @@ module.exports = class extends Generator {
     )
 
     this.fs.copyTpl(
+      this.templatePath("app/views/index.erb"),
+      this.destinationPath(`${this.answers.projectName}/app/views/index.erb`)
+    )
+
+    this.fs.copyTpl(
       this.templatePath("spec/models/model_spec.rb"),
       this.destinationPath(`${this.answers.projectName}/spec/models/model_spec.rb`)
     )
@@ -36,5 +41,7 @@ module.exports = class extends Generator {
     this.spawnCommandSync("bundle", ["init"], { cwd: installLocation})
     this.spawnCommandSync("bundle", ["add", "pry"], { cwd: installLocation })
     this.spawnCommandSync("bundle", ["add", "rspec"], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ["add", "sinatra"], { cwd: installLocation })
+    this.spawnCommandSync("bundle", ["add", "sinatra-contrib"], { cwd: installLocation })
   }
 }
