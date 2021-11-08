@@ -14,22 +14,22 @@ module.exports = class extends Generator {
 
   writing() {
     // TODO: check if the folder already exists and fail if it does
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath("app.rb"),
       this.destinationPath(`${this.answers.projectName}/app.rb`)
     )
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath("app/models/model.rb"),
       this.destinationPath(`${this.answers.projectName}/app/models/model.rb`)
     )
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath("app/views/index.erb"),
       this.destinationPath(`${this.answers.projectName}/app/views/index.erb`)
     )
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath("spec/models/model_spec.rb"),
       this.destinationPath(`${this.answers.projectName}/spec/models/model_spec.rb`)
     )
