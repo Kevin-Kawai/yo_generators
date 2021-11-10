@@ -1,4 +1,4 @@
-require_relative "../../app/model/model"
+require_relative "../../app/models/model"
 
 RSpec.describe Model, :type => :model do
   describe "print" do
