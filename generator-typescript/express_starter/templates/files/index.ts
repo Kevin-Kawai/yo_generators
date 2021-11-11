@@ -1,8 +1,10 @@
 import express from "express";
+import path from "path";
 
 const app = express();
 const port = 8080;
 
+app.set('views', path.join(__dirname, '/app/views'))
 app.set("view engine", "ejs");
 // needed for ejs to work with webpack
 app.engine('ejs', require('ejs').__express)
