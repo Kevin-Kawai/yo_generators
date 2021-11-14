@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./index.js",
+    "outDir": "./app.js",
     "module": "es6",
     "target": "es5",
     "jsx": "react",
