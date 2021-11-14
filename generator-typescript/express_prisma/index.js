@@ -29,7 +29,7 @@ module.exports = class extends Generator {
     // runtime dependencies
     this.spawnCommandSync("yarn", ['init'], { cwd: installLocation })
     this.spawnCommandSync("yarn", ['add', 'express', ], { cwd: installLocation })
-    this.spawnCommandSync("yarn", ['add', 'ejs', ], { cwd: installLocation })
+    this.spawnCommandSync("yarn", ['add', 'ejs'], { cwd: installLocation })
 
     // dev dependencies
     this.spawnCommandSync("yarn", ['add', '@types/express', '-D'], { cwd: installLocation })
